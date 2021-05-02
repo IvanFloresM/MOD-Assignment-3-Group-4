@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs–– -->
+  <meta charset="utf-8">
+  <title>MoD Group Project</title>
+  <meta name="description" content="">
+  <meta name="Ivan Flores Martinez" content="">
+
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/customize.css">
+
+  <!-- Load d3.js -->
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <!-- D3 v3 -->
+  <script src="underscore-min.js"></script>
+  <script src="gistfile1.js"></script>
+  <!-- Color Scale https://rawgit.com/sghall/7859113/raw/422da4401f7d4fc0352a7c49961d24f03716be7a/gistfile1.js-->
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <style>
+    .imgContainer{
+      float:left;
+      margin-right:5px;
+    }
+
+    .text{
+    text-align:justify;
+    }
+
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+
+    .center-text {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="container one-bottom" style="margin-top: 50px">
+    <div class="ten columns">
+      <h3 class="text"><STRONG>The impact of COVID-19 on New York City Bike </h3></STRONG>
+      <p>
+        ARCH 6306/6050, DSBA 6010, ITIS 8010/6010: Wednesdays 6pm-8:30pm, Taught Online
+        <br>
+        Ivan Flores Martinez | Bianca Moore | Jake D'Antoni | Samrhiti Kamat
+        <br>
+      </p>
+    </div>
+    <div class="two columns">
+      <a href="https://urbansynergeticslab.net/"><img class="scale-with-grid" src="images/covid_bike.png"></strong></a>
+    </div>
+    <div class="twelve columns">
+      <h5>Research Question</h5>
+      <h4 class="text"><strong>How have the peak hours and numbers of trips effected demand of the city bikes in NYC in 2020?</h4>
+      <h5>Background</h5>
+      <p class="text">With the recent outbreak of the coronavirus pandemic in 2020, we aim to compare data on bike sharing services in New York City from the years 2019 and 2020 to see if there are any conclusions that can be drawn relating to the pandemic’s effect on the CitiBike NYC services. Although correlation does not prove causation, we believe that examining these two years and comparing the data will allow us to make assumptions based on the data found. </p>
+
+      <div>
+        <p class="center"><em>Mobility trends in 2020 and 2021</em></p>
+      <img class="middle-img" src="images/time series of mobility.png" height="600" width="1000" align="middle"/></div>
+      </br>
+      <p class="text">The time series graph compares mobility trends from January 2020 to March 2021. Considering the lockdown due to the Covid-19 a severe dip was observed in all the three modes of transport in March 2020. Post March 2020 an increase in mobility was observed with driving being at the highest. It can also be observed that the use of transit systems showed a consistent increase post the lockdown of March 2020.</p>
+
+    <div>
+    	<p class="center"><em>Top 10 start in 2019</em></p>
+    	<img class="middle-img" src="images/top10 stations 2019.png" height="600" width="1000" align="middle"/></div>
+    	<br>
+
+        <div>
+    	<p class="center"><em>Top 10 stations in 2020</em></em></p>
+    	<img class="middle-img" src="images/top10 stations 2020.png" height="600" width="1000" align="middle"/></div>
+    	<br>
+    	<p class="text">The graph depicts significant differences between the years 2019 and 2020 as the usage of bikes by females decreased in peak hour values. Broadway and East 22 St. station specifically used by female users  was seen to have a decrease in the no. of trips from 2019 to 2020. Men were observed to use the Bike Sharing system more frequently as compared to women in both the years.</p>
+    </br>
+
+      <div>
+      <p class="center"><em>Number of trips by location in March 2019</em></p>
+      <img class="middle-img" src="images/March2019.png" height="600" width="950" align="middle"/></div>
+      <br>
+      <p class="text"> The hexagons in the map above represent stations in a 0.2 mile radius each and the height of each hexagons represents the number of trips taken from that cluster of stations. The gradient describes the concentration ranging from highest to lowest across the city. It is observed that the highest concentration was in the Midtown area of Manhattan. The highest number of trips taken in the month of March 2019 is 15,000.</p>
+      </br>
+
+      <div>
+      <p class="center"><em>Number of trips by location in March 2020</em></p>
+      <img class="middle-img" src="images/March2020.png" height="600" width="950" align="middle"/></div>
+      <br>
+      <p class="text">The hexagons in the map above represent stations in a 0.2 mile radius each and the height of each hexagons represents the number of trips taken at that station. The gradient describes the concentration ranging from highest to lowest across the city. The number of trips decreased drastically as the city went into lockdown due to the COVID-19 outbreak. The highest number of trips reduced to 9,000 for the month of March 2020 as compared to it being 15,000 in March 2019. However, the concentration of the maximum number of trips taken continued to be the bike station locations in Manhattan.</p>
+      </br>
+
+      <div>
+      <p class="center"><em>Number of trips by location in June 2020</em></p>
+      <img class="middle-img" src="images/June2020.png" height="600" width="950" align="middle"/></div>
+      <br>
+      <p class="text">The hexagons in the map above represent stations in a 0.2 mile radius each and the height of each hexagons represents the number of trips taken at that station. The gradient describes the concentration ranging from highest to lowest across the city. The number of trips increased drastically as the city went into Phase 1 and 2 due to the COVID-19 outbreak, allowing users to use the Bike Sharing systems again. The highest number of trips increased back to 16,000 for the month of June 2020. The concentration of the maximum number of trips taken were not only observed to be high in Manhattan but also in certain parts of Brooklyn which concludes that longer trip durations were starting to be observed.</p>
+      </br>
+
+      <div><p class="center"><em>Trip comparison between 2019 and 2020</em></p>
+      
+      <img class="middle-img" src="images/Arc Map Comparison.png" height="600" width="950" align="middle"/></div>
+      <br>
+      <p class="text">The red and white arcs in the map above represent and compare the start and stop locations of the trips taken in 2019 and 2020, respectively. Even though the average trend of trips in 2019 and 2020 remain similar, in 2020, an addition to trips taken from the East site of the city to the center was observed. In conclusion it can be said that longer trips were taken by people in the year 2020, considering the city was at an ease in terms of the Covid-10 impacts.</p>
+      </br>
+   
+    </div>
+      <div class="image123">
+        <div class="imgContainer">
+          <p class="center"><em>Covid cases vs number of trips in NYC in 2020</em></p>
+          <img src="images/Trips vs Case Count.png" height="470" width="470"/>
+        </div>
+        <div class="imgContainer">
+          <p class="center"><em>Covid cases in New York City in 2020</em></p>
+          <img class="middle-img" src="images/dates vs cases.png" height="470" width="470"/>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="twelve columns">
+     	<p class="text"> The data that was collected and observed included variables relating to location, time, number of trips and user type. COVID-19 shutdowns began in March of 2020 in the state of New York. The number of COVID-19 cases in NYC today amount to over 676,000 with over 28,000 deaths. Due to the amount of cases in NYC, we found it important to determine the effects of the pandemic on the city's shared bike system. We collected data from New York Public Health repository and added it to our analysis to observe impact.With our question in specific we aimed at looking at location and the timeline of the trips. On looking at the graphs concerning peak hours, it is observed that not only did the peak hours fluctuate but also the number of trips varied. Conclusions can be drawn relating to the number of trips, where there was a sharp decrease in March & April of 2020 when national lockdown began. Comparatively, in 2019 there was a sharp increase in these months. In addition, peak hours during 2019 and 2020 both show early morning and evening hours as high points, alluding to the argument that bike sharing services were used primarily for commuting to and from work.</p></div>
+    <br>
+    <div class="image123">
+      <div class="imgContainer">
+        <p class="center"><em>Average number of trips per hours of the day 2019</em></p>
+        <img src="images/Average number of trips per hours of the day 2019.png" height="475" width="475"/>
+      </div>
+      <div class="imgContainer">
+        <p class="center"><em>Average number of trips per hours of the day 2020</em></p>
+        <img class="middle-img" src="images/Average number of trips per hours of the day 2020.png" height="475" width="475"/>
+      </div>
+      </br>
+    </div>
+    </br>
+    <div class="twelve columns">
+      <p class="text">The average number of trips per day shows that in 2019, there were two peaks - in the morning and afternoon. This alludes to the conclusion that shared bike systems were used for commuting to and from work. Comparatively, the data from 2020 shows the absence of a morning peak in trips, possibly due to change in working patterns and transition to working-from-home. However, there is still a peak in the afternoon, showing that people continued to use shared bike systems in the evening for pleasure purposes. As seen in the graphs, the demand and the patterns show the usage reducing by half in the first peak (about 8am) and reduced in a lesser intensity at the second peak (between 7pm - 8pm).</p>
+    </div>
+    <p class="center"><em>Number of trips in NYC in 2020 and 2019</em></p>
+    <div id="my_dataviz" align="middle"></div>
+    <div class="twelve columns">
+    <p class="text"> As compared to 2019 the number of trips in NYC drastically decreased in the month of March 2020 due to the lockdown the city faced. However, the overall trend between the years was not affected significantly. As the city went in phase 1 and 2 of the virus outbreak the usage of the Bike Sharing system seemed to have increased again. The number of trips in the month of october 2019 and 2020 seemed to be similar which concludes that the city went back to routine and utility in the later months of the year 2020.</p>
+    </div>
+    </br>
+
+    <div class="twelve columns">
+	<p class="center"><em>Top 60 stations in 2019</em></p></div>
+	<div class="imgContainer">
+		<div id="tooltip" align="middle"></div>
+	<br>
+
+    <div id="tooltip2" align="middle"></div>
+    <br>
+
+	<p class="center"><em>Top 60 stations in 2020</em></p>
+    <p>The chord diagram represents connections between the top 60 stations in 2019 and 2020. The interconnections between stations are the trips made between the stations. Compared to 2019, interconnectivity decreased between stations. One explanation of this behavior is that the number of commuters decreased in 2020 while the number of recreational bike users increased. In addition, bike users also made shorter trips in 2020.</p>
+    </br>
+
+    <div>
+      <p class="center"><em>March 2019 vs 2020</em></p>
+      <img class="middle-img" src="images/march month 2019 vs 2020.png" height="600" width="1000" align="middle"/></div>
+    <br>
+
+    <p class="text">The average number of trips per hour shows that in 2019, there were two peaks - in the morning at 6am and in the evening at 5pm. This alludes to the conclusion that shared bike systems were used for commuting to and from work. Comparatively, the data from 2020 shows the dip in the usage of morning and afternoon peak in trips, possibly due to change in working patterns and transition to working-from-home. As seen in the graphs, the patterns show the usage reduced but with a lesser intensity concluding that people continued to use shared bike systems for mobility not just for work but also for leisure purposes.</p>
+    </br>
+
+      <h3>References</h3>
+      <ol>
+        <li class="text">Hu, Winnie. “A Surge in Biking to Avoid Crowded Trains in N.Y.C.” The New York Times. The New York Times, March 14, 2020. https://www.nytimes.com/2020/03/14/nyregion/coronavirus-nyc-bike-commute.html</li>
+        <li class="text">Calgary, Open. “Bicycle Routes.” NYC Open Data. Accessed February 17, 2021. https://data.cityofnewyork.us/Transportation/Bicycle-Routes/7vsa-caz7.</li>
+        <li class="text">Tedeschi, Alexander. “Rebalancing Citi Bike : a Geospatial Analysis of Bike Share Redistribution in New York City.” RUN, February 26, 2016. https://run.unl.pt/handle/10362/17842?locale=en.</li>
+        <li class="text">Teixeira, João Filipe, and Miguel Lopes. “The Link between Bike Sharing and Subway Use during the COVID-19 Pandemic: The Case-Study of New York's Citi Bike.” Transportation Research Interdisciplinary Perspectives. Elsevier, July 8, 2020. https://www.sciencedirect.com/science/article/pii/S2590198220300774.</li>
+        <li class="text">Apple mobility trends 2020-2021.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="container one-bottom" >
+    <h3>Team & Contributions</h3>
+    <h5>Ivan Flores Martinez</h5>
+    <p class="text">Ivan Flores took the lead with regards to setting up the github website, cleaning data, and creating chord graphs for the webpage.</p>
+    <h5>Bianca Moore</h5>
+    <p class="text">Bianca Moore produced multiple graphs for the webpage and worked in RStudio to clean data. She also aided in putting together the github website.</p>
+    <h5>Jake D'Antoni</h5>
+    <p class="text">Jake D'Antoni produced the bike sharing map via Kepler and cleaning the data for the assignment. He also aided in putting together the github website.</p>
+    <h5>Samrhiti Kamat</h5>
+    <p class="text">Samrhiti Kamat helped write the context the graphs and maps in the website. She aided putting together the github website. She also produced the PowerPoint presentation for assignment 2.</p>
+  </div>
+</body>
+
+<script src="https://d3js.org/d3.v4.js"></script>
+<script>
+  // set the dimensions and margins of the graph
+  var margin = {top: 10, right: 100, bottom: 30, left: 30},
+          width = 700 - margin.left - margin.right,
+          height = 500 - margin.top - margin.bottom;
+
+  // append the svg object to the body of the page
+  var svg = d3.select("#my_dataviz")
+          .append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+          .attr("transform",
+                  "translate(" + margin.left + "," + margin.top + ")");
+
+  //Read the data
+  d3.csv("data/trips_2019-2020.csv", function(data) {
+
+    // List of groups (here I have one group per column)
+    var allGroup = ["trips2019", "trips2020", "total_trips"]
+
+    // Reformat the data: we need an array of arrays of {x, y} tuples
+    var dataReady = allGroup.map( function(grpName) { // .map allows to do something for each element of the list
+      return {
+        name: grpName,
+        values: data.map(function(d) {
+          return {month: d.month, value: +d[grpName]};
+        })
+      };
+    });
+    // I strongly advise to have a look to dataReady with
+    // console.log(dataReady)
+
+    // A color scale: one color for each group
+    var myColor = d3.scaleOrdinal()
+            .domain(allGroup)
+            .range(d3.schemeSet2);
+
+    // Add X axis --> it is a date format
+    var x = d3.scaleLinear()
+            .domain([0,12])
+            .range([ 0, width ]);
+    svg.append("g")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x));
+
+    // Add Y axis
+    var y = d3.scaleLinear().nice()
+            .domain([0, 100000])
+            .range([ height,0]);
+    svg.append("g")
+            .call(d3.axisLeft(y));
+//    d3.axisLeft(y)).tickValues([10000,20000,30000,40000,50000,60000,70000,80000,90000, 10000]);
+
+    // Add the lines
+    var line = d3.line()
+            .x(function(d) { return x(+d.month) })
+            .y(function(d) { return y(+d.value) })
+    svg.selectAll("myLines")
+            .data(dataReady)
+            .enter()
+            .append("path")
+            .attr("class", function(d){ return d.name })
+            .attr("d", function(d){ return line(d.values) } )
+            .attr("stroke", function(d){ return myColor(d.name) })
+            .style("stroke-width", 4)
+            .style("fill", "none")
+
+    // Add the points
+    svg
+            // First we need to enter in a group
+            .selectAll("myDots")
+            .data(dataReady)
+            .enter()
+            .append('g')
+            .style("fill", function(d){ return myColor(d.name) })
+            .attr("class", function(d){ return d.name })
+            // Second we need to enter in the 'values' part of this group
+            .selectAll("myPoints")
+            .data(function(d){ return d.values})
+            .enter()
+            .append("circle")
+            .attr("cx", function(d) { return x(d.month) } )
+            .attr("cy", function(d) { return y(d.value) } )
+            .attr("r", 8)
+            .attr("stroke", "white")
+
+    // Add a label at the end of each line
+    svg
+            .selectAll("myLabels")
+            .data(dataReady)
+            .enter()
+            .append('g')
+            .append("text")
+            .attr("class", function(d){ return d.name })
+            .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; }) // keep only the last value of each time series
+            .attr("transform", function(d) { return "translate(" + x(d.value.month) + "," + y(d.value.value) + ")"; }) // Put the text at the position of the last point
+            .attr("x", 12) // shift the text a bit more right
+            .text(function(d) { return d.name; })
+            .style("fill", function(d){ return myColor(d.name) })
+            .style("font-size", 20)
+
+    // Add a legend (interactive)
+    svg
+            .selectAll("myLegend")
+            .data(dataReady)
+            .enter()
+            .append('g')
+            .append("text")
+            .attr('x', function(d,i){ return 30 + i*130})
+            .attr('y', 10)
+            .text(function(d) { return d.name; })
+            .style("fill", function(d){ return myColor(d.name) })
+            .style("font-size", 20)
+            .on("click", function(d){
+              // is the element currently visible ?
+              currentOpacity = d3.selectAll("." + d.name).style("opacity")
+              // Change the opacity: from 0 to 1 or from 1 to 0
+              d3.selectAll("." + d.name).transition().style("opacity", currentOpacity == 1 ? 0:1)
+
+            })
+  })
+</script>
+
+ <script>
+        d3.csv('data/data_2019.csv', function(error, data) {
+            var mpr = chordMpr(data);
+            mpr
+                .addValuesToMap('root')
+                .addValuesToMap('node')
+                .setFilter(function(row, a, b) {
+                    return (row.root === a.name && row.node === b.name)
+                })
+                .setAccessor(function(recs, a, b) {
+                    if (!recs[0]) return 0;
+                    return +recs[0].count;
+                });
+            drawChords(mpr.getMatrix(), mpr.getMap());
+        });
+
+        function drawChords(matrix, mmap) {
+
+            var w = 800,
+                h = 700,
+                r1 = h / 2,
+                r0 = r1 - 110;
+
+            var chord = d3.chord()
+                .padAngle(0.05)
+                .sortSubgroups(d3.descending)
+                .sortChords(d3.descending);
+
+            var arc = d3.arc()
+                .innerRadius(r0)
+                .outerRadius(r0 + 20);
+
+            var ribbon = d3.ribbon()
+                .radius(r0);
+
+            var svg = d3.select("#tooltip").append("svg:svg")
+                .attr("width", w)
+                .attr("height", h)
+                .append("svg:g")
+                .attr("id", "circle")
+                .attr("transform", "translate(" + w / 2 + "," + h / 2 + ")")
+                .datum(chord(matrix));
+
+            svg.append("circle")
+                .attr("r", r0 + 20);
+
+            var mapReader = chordRdr(matrix, mmap);
+
+
+            var g = svg.selectAll("g.group")
+                .data(function(chords) {
+                    return chords.groups;
+                })
+                .enter().append("svg:g")
+                .attr("class", "group")
+
+            g.append("svg:path")
+                .style("stroke", "grey")
+                .style("fill", function(d) {
+                    return mapReader(d).gdata;
+                })
+                .attr("d", arc);
+
+            g.append("svg:text")
+                .each(function(d) {
+                    d.angle = (d.startAngle + d.endAngle) / 2;
+                })
+                .attr("dy", ".35em")
+                .style("font-family", "helvetica, arial, sans-serif")
+                .style("font-size", "9px")
+                .attr("text-anchor", function(d) {
+                    return d.angle > Math.PI ? "end" : null;
+                })
+                .attr("transform", function(d) {
+                    return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")" +
+                        "translate(" + (r0 + 26) + ")" +
+                        (d.angle > Math.PI ? "rotate(180)" : "");
+                })
+                .text(function(d) {
+                    return mapReader(d).gname;
+                });
+
+            var colors = d3.scaleOrdinal(d3.schemeCategory20c);
+
+            var chordPaths = svg.selectAll("path.chord")
+                .data(function(chords) {
+                    return chords;
+                })
+                .enter().append("svg:path")
+                .attr("class", "chord")
+                .style("stroke", "grey")
+                .style("fill", function(d, i) {
+                    return colors(i)
+                })
+                .attr("d", ribbon.radius(r0))
+
+        }
+    </script>
+
+<script>
+        d3.csv('data/data_2020.csv', function(error, data) {
+            var mpr = chordMpr(data);
+            mpr
+                .addValuesToMap('root')
+                .addValuesToMap('node')
+                .setFilter(function(row, a, b) {
+                    return (row.root === a.name && row.node === b.name)
+                })
+                .setAccessor(function(recs, a, b) {
+                    if (!recs[0]) return 0;
+                    return +recs[0].count;
+                });
+            drawChords(mpr.getMatrix(), mpr.getMap());
+        });
+
+        function drawChords(matrix, mmap) {
+
+            var w = 800,
+                h = 700,
+                r1 = h / 2,
+                r0 = r1 - 110;
+
+            var chord = d3.chord()
+                .padAngle(0.05)
+                .sortSubgroups(d3.descending)
+                .sortChords(d3.descending);
+
+            var arc = d3.arc()
+                .innerRadius(r0)
+                .outerRadius(r0 + 20);
+
+            var ribbon = d3.ribbon()
+                .radius(r0);
+
+            var svg = d3.select("#tooltip2").append("svg:svg")
+                .attr("width", w)
+                .attr("height", h)
+                .append("svg:g")
+                .attr("id", "circle")
+                .attr("transform", "translate(" + w / 2 + "," + h / 2 + ")")
+                .datum(chord(matrix));
+
+            svg.append("circle")
+                .attr("r", r0 + 20);
+
+            var mapReader = chordRdr(matrix, mmap);
+
+
+            var g = svg.selectAll("g.group")
+                .data(function(chords) {
+                    return chords.groups;
+                })
+                .enter().append("svg:g")
+                .attr("class", "group")
+
+            g.append("svg:path")
+                .style("stroke", "grey")
+                .style("fill", function(d) {
+                    return mapReader(d).gdata;
+                })
+                .attr("d", arc);
+
+            g.append("svg:text")
+                .each(function(d) {
+                    d.angle = (d.startAngle + d.endAngle) / 2;
+                })
+                .attr("dy", ".35em")
+                .style("font-family", "helvetica, arial, sans-serif")
+                .style("font-size", "9px")
+                .attr("text-anchor", function(d) {
+                    return d.angle > Math.PI ? "end" : null;
+                })
+                .attr("transform", function(d) {
+                    return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")" +
+                        "translate(" + (r0 + 26) + ")" +
+                        (d.angle > Math.PI ? "rotate(180)" : "");
+                })
+                .text(function(d) {
+                    return mapReader(d).gname;
+                });
+
+            var colors = d3.scaleOrdinal(d3.schemeCategory20c);
+
+            var chordPaths = svg.selectAll("path.chord")
+                .data(function(chords) {
+                    return chords;
+                })
+                .enter().append("svg:path")
+                .attr("class", "chord")
+                .style("stroke", "grey")
+                .style("fill", function(d, i) {
+                    return colors(i)
+                })
+                .attr("d", ribbon.radius(r0))
+
+        }
+    </script>
+</html>
