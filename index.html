@@ -186,13 +186,10 @@
       <div class="imgContainer" id="chart7"></div>
       </div>
       </br>
-      </br>
 
       <p class="text">The graphs above, compare the number of rides based on customer type in 2019 and 2020 from the months between January and June. In both the years there is a clear trend of subscribers being higher than the non-subscribers, the subscription rate decreased from 2019 and 2020.In 2019, the graph describes an incline in the number of subscriber rides but in 2020, a dip in the usage is observed in the months of March and April. It can be assumed that this decline can be caused due to the lockdown the city went through in 2020 due to COVID-19. However, the number of rides seemed to pick up again post lockdown. Another distinct change in trend observed from 2019 to 2020 is the number of non-subscribers seemed to increase in 2020. Though these observations, we can see that subscriptions began to decline during the COVID-19 outbreak and non-subscribers increased in 2020.</p>
       <br>
       </br>
-    
-   
 
     <div>
       <p class="center"><em>Top 10 start in 2019</em></p>
@@ -804,7 +801,7 @@ var z4 = d3.scaleOrdinal()
     .range(["#fd1212", "#edfb0f"]);
 
 // load the csv and create the chart
-d3.csv("data/age-groups2.csv", function(d, i, columns) {
+d3.csv("data/age-groups.csv", function(d, i, columns) {
   for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
   d.total = t;
   return d;
@@ -920,7 +917,7 @@ var z5 = d3.scaleOrdinal()
     .range(["#fd1212", "#edfb0f"]);
 
 // load the csv and create the chart
-d3.csv("data/age-groups3.csv", function(d, i, columns) {
+d3.csv("data/age-groups2.csv", function(d, i, columns) {
   for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
   d.total = t;
   return d;
