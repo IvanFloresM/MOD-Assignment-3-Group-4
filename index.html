@@ -917,7 +917,7 @@ var z5 = d3.scaleOrdinal()
     .range(["#fd1212", "#edfb0f"]);
 
 // load the csv and create the chart
-d3.csv("data/age-groups2.csv", function(d, i, columns) {
+d3.csv("data/age-groups3.csv", function(d, i, columns) {
   for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
   d.total = t;
   return d;
