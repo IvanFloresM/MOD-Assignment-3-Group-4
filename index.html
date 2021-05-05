@@ -128,8 +128,8 @@
       <p class="text">The time series graph compares mobility trends from January 2020 to March 2021. Considering the lockdown due to the Covid-19 a severe dip was observed in all the three modes of transport in March 2020. Post March 2020 an increase in mobility was observed with driving being at the highest. It can also be observed that the use of transit systems showed a consistent increase post the lockdown of March 2020.</p>
 
 
-    <p class="center"><em>Number of trips in NYC in 2020 and 2019</em></p>
-    <div id="my_dataviz" align="middle"></div>
+ <p class="center"><em>Number of trips in NYC in 2020 and 2019</em></p>
+    <div id="my_dataviz" align="middle" class="center"></div>
     <div class="twelve columns">
     <p class="text"> As compared to 2019 the number of trips in NYC drastically decreased in the month of March 2020 due to the lockdown the city faced. However, the overall trend between the years was not affected significantly. As the city went in phase 1 and 2 of the virus outbreak the usage of the Bike Sharing system seemed to have increased again. The number of trips in the month of october 2019 and 2020 seemed to be similar which concludes that the city went back to routine and utility in the later months of the year 2020.</p>
     </div>
@@ -159,7 +159,7 @@
       </br>
       </br>
 
-      <p class="text">"The histogram show trips group by minute count."</p>
+      <p class="text">The graph compares the trip durations grouped by minutes of the CitiBike in NYC in the years 2019 and 2020. It can be noted that not only did the number of trips decline but also did the duration of trips. Shorter trips were observed in 2020 as compared to 2019</p>
 
 
        <div>
@@ -173,7 +173,7 @@
       </br>
       </br>
 
-      <p class="text">"The graph shows number of riders by gender in 2019 and 2020."</p>
+      <p class="text">The graphs above compare trip durations between the months of January and June in the year of 2019 and 2020. Even though, during 2020 the trip count decreased for both the genders in the month of March and April, trips taken by men remained higher than women.</p>
       <br>
       </br>
 
@@ -188,7 +188,7 @@
       </br>
       </br>
 
-      <p class="text">The graphs above, compare the number of rides based on customer type in 2019 and 2020 from the months between January and June. In both the years there is a clear trend of subscribers being higher than the non-subscribers, the subscription rate decreased from 2019 and 2020.In 2019, the graph describes an incline in the number of subscriber rides but in 2020, a dip in the usage is observed in the months of March and April. It can be assumed that this decline can be caused due to the lockdown the city went through in 2020 due to COVID-19. However, the number of rides seemed to pick up again post lockdown. Another distinct change in trend observed from 2019 to 2020 is the number of non-subscribers seemed to increase in 2020. Through these observations, it can be concluded that people started to use the Bike Sharing system in the year 2020 but since there were uncertainties in terms of lockdown due to the virus outbreak, subscriptions were not as preferred as before.</p>
+      <p class="text">The graphs above, compare the number of rides based on customer type in 2019 and 2020 from the months between January and June. In both the years there is a clear trend of subscribers being higher than the non-subscribers, the subscription rate decreased from 2019 and 2020.In 2019, the graph describes an incline in the number of subscriber rides but in 2020, a dip in the usage is observed in the months of March and April. It can be assumed that this decline can be caused due to the lockdown the city went through in 2020 due to COVID-19. However, the number of rides seemed to pick up again post lockdown. Another distinct change in trend observed from 2019 to 2020 is the number of non-subscribers seemed to increase in 2020. Though these observations, we can see that subscriptions began to decline during the COVID-19 outbreak and non-subscribers increased in 2020.</p>
       <br>
       </br>
     
@@ -272,10 +272,12 @@
       <div class="twelve columns">
       <p class="text"> General conclusions regarding the change in bike share programs due to the COVID-19 pandemic point towards the following assumptions:</p></div>
         <div class="twelve columns">
+          <ol>
              <li class="text"> Less subscribers and more casual user in 2020.</li>
              <li class="text"> Shorter trips and more round trips in 2020.</li>
              <li class="text"> Most popular location changed from business areas to other areas.</li> 
              <li class="text"> Less commuter trips and more recreational trips in 2020.</li>
+            </ol>
         </div>
       <br>
 
@@ -803,7 +805,7 @@ var z4 = d3.scaleOrdinal()
     .range(["#fd1212", "#edfb0f"]);
 
 // load the csv and create the chart
-d3.csv("data/age-groups.csv", function(d, i, columns) {
+d3.csv("data/age-groups2.csv", function(d, i, columns) {
   for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
   d.total = t;
   return d;
@@ -919,7 +921,7 @@ var z5 = d3.scaleOrdinal()
     .range(["#fd1212", "#edfb0f"]);
 
 // load the csv and create the chart
-d3.csv("data/age-groups2.csv", function(d, i, columns) {
+d3.csv("data/age-groups3.csv", function(d, i, columns) {
   for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
   d.total = t;
   return d;
