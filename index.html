@@ -127,21 +127,20 @@
 
       <p class="text">The time series graph compares mobility trends from January 2020 to March 2021. Considering the lockdown due to the Covid-19 a severe dip was observed in all the three modes of transport in March 2020. Post March 2020 an increase in mobility was observed with driving being at the highest. It can also be observed that the use of transit systems showed a consistent increase post the lockdown of March 2020.</p>
 
-      <p class="center" >"Trip duration in 2019 vs 202 Customer type in 2019 vs 2020"</p>
-
+      <p class="center" >"Trip duration in 2019 vs 2020"</p>
 
       <div>
-      <div class="imgContainer" id="chart2"></div>
+      <div id="chart2"></div>
       </br>
 
 
       <div>
-      <div class="imgContainer" id="chart1"></div>
+      <div id="chart1"></div>
       </div>
       </br>
       </br>
 
-      <p class="text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+      <p class="text">"The histogram show trips group by minute count."</p>
 
 
        <div>
@@ -155,7 +154,22 @@
       </br>
       </br>
 
-      <p class="text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+      <p class="text">"The graph shows number of riders by gender in 2019 and 2020."</p>
+      <br>
+      </br>
+
+        <div>
+      <div class="imgContainer" id="chart6"></div>
+      </br>
+
+
+      <div>
+      <div class="imgContainer" id="chart7"></div>
+      </div>
+      </br>
+      </br>
+
+      <p class="text">The graph shows number of riders by customer type in 2019 and 2020.</p>
       <br>
       </br>
     
@@ -961,23 +975,256 @@ d3.csv("data/age-groups3.csv", function(d, i, columns) {
 });
 
   // Prep the tooltip bits, initial display is hidden
-  var tooltip4 = svg4.append("g")
+  var tooltip5 = svg5.append("g")
     .attr("class", "tooltip")
     .style("display", "none");
       
-  tooltip4.append("rect")
+  tooltip5.append("rect")
     .attr("width", 60)
     .attr("height", 20)
     .attr("fill", "white")
     .style("opacity", 0.5);
 
-  tooltip4.append("text")
+  tooltip5.append("text")
     .attr("x", 30)
     .attr("dy", "1.2em")
     .style("text-anchor", "middle")
     .attr("font-size", "12px")
     .attr("font-weight", "bold");
 </script>
+
+
+<script>
+// create the svg
+var svg6 = d3.select("#chart6").append("svg").attr("width", 450).attr("height", 500),
+    margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width6 = +svg6.attr("width") - margin.left - margin.right,
+    height6 = +svg6.attr("height") - margin.top - margin.bottom,
+    g6 = svg6.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// set x scale
+var x6 = d3.scaleBand()
+    .rangeRound([0, width6])
+    .paddingInner(0.05)
+    .align(0.1);
+
+// set y scale
+var y6 = d3.scaleLinear()
+    .rangeRound([height6, 0]);
+
+// set the colors
+var z6 = d3.scaleOrdinal()
+    .range(["#fd1212", "#edfb0f"]);
+
+// load the csv and create the chart
+d3.csv("data/age-groups6.csv", function(d, i, columns) {
+  for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+  d.total = t;
+  return d;
+}, function(error, data) {
+  if (error) throw error;
+
+  var keys6 = data.columns.slice(1);
+
+  x6.domain(data.map(function(d) { return d.State; }));
+  y6.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
+  z6.domain(keys6);
+
+  g6.append("g")
+    .selectAll("g")
+    .data(d3.stack().keys(keys6)(data))
+    .enter().append("g")
+      .attr("fill", function(d) { return z(d.key); })
+    .selectAll("rect")
+    .data(function(d) { return d; })
+    .enter().append("rect")
+      .attr("x", function(d) { return x(d.data.State); })
+      .attr("y", function(d) { return y(d[1]); })
+      .attr("height", function(d) { return y(d[0]) - y(d[1]); })
+      .attr("width", x5.bandwidth())
+    .on("mouseover", function() { tooltip6.style("display", null); })
+    .on("mouseout", function() { tooltip6.style("display", "none"); })
+    .on("mousemove", function(d) {
+      console.log(d);
+      var xPosition6 = d3.mouse(this)[0] - 5;
+      var yPosition6 = d3.mouse(this)[1] - 5;
+      tooltip6.attr("transform", "translate(" + xPosition6 + "," + yPosition6 + ")");
+      tooltip6.select("text").text(d[1]-d[0]);
+    });
+
+  g6.append("g")
+      .attr("class", "axis")
+      .attr("transform", "translate(0," + height6 + ")")
+      .call(d3.axisBottom(x6));
+
+  g6.append("g")
+      .attr("class", "axis")
+      .call(d3.axisLeft(y6).ticks(null, "s"))
+    .append("text")
+      .attr("x", 2)
+      .attr("y", y(y6.ticks().pop()) + 0.5)
+      .attr("dy", "0.32em")
+      .attr("fill", "#000")
+      .attr("font-weight", "bold")
+      .attr("text-anchor", "start");
+
+  var legend6 = g6.append("g")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .attr("text-anchor", "end")
+    .selectAll("g")
+    .data(keys6.slice().reverse())
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  legend6.append("rect")
+      .attr("x", width6 - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", z6);
+
+  legend6.append("text")
+      .attr("x", width6 - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .text(function(d) { return d; });
+});
+
+  // Prep the tooltip bits, initial display is hidden
+  var tooltip6 = svg6.append("g")
+    .attr("class", "tooltip")
+    .style("display", "none");
+      
+  tooltip6.append("rect")
+    .attr("width", 60)
+    .attr("height", 20)
+    .attr("fill", "white")
+    .style("opacity", 0.5);
+
+  tooltip6.append("text")
+    .attr("x", 30)
+    .attr("dy", "1.2em")
+    .style("text-anchor", "middle")
+    .attr("font-size", "12px")
+    .attr("font-weight", "bold");
+</script>
+
+
+<script>
+// create the svg
+var svg7 = d3.select("#chart7").append("svg").attr("width", 450).attr("height", 500),
+    margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width7 = +svg7.attr("width") - margin.left - margin.right,
+    height7 = +svg7.attr("height") - margin.top - margin.bottom,
+    g7 = svg7.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// set x scale
+var x7 = d3.scaleBand()
+    .rangeRound([0, width7])
+    .paddingInner(0.05)
+    .align(0.1);
+
+// set y scale
+var y7 = d3.scaleLinear()
+    .rangeRound([height7, 0]);
+
+// set the colors
+var z7 = d3.scaleOrdinal()
+    .range(["#fd1212", "#edfb0f"]);
+
+// load the csv and create the chart
+d3.csv("data/age-groups7.csv", function(d, i, columns) {
+  for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+  d.total = t;
+  return d;
+}, function(error, data) {
+  if (error) throw error;
+
+  var keys7 = data.columns.slice(1);
+
+  x7.domain(data.map(function(d) { return d.State; }));
+  y7.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
+  z7.domain(keys7);
+
+  g7.append("g")
+    .selectAll("g")
+    .data(d3.stack().keys(keys7)(data))
+    .enter().append("g")
+      .attr("fill", function(d) { return z(d.key); })
+    .selectAll("rect")
+    .data(function(d) { return d; })
+    .enter().append("rect")
+      .attr("x", function(d) { return x(d.data.State); })
+      .attr("y", function(d) { return y(d[1]); })
+      .attr("height", function(d) { return y(d[0]) - y(d[1]); })
+      .attr("width", x7.bandwidth())
+    .on("mouseover", function() { tooltip7.style("display", null); })
+    .on("mouseout", function() { tooltip7.style("display", "none"); })
+    .on("mousemove", function(d) {
+      console.log(d);
+      var xPosition7 = d3.mouse(this)[0] - 5;
+      var yPosition7 = d3.mouse(this)[1] - 5;
+      tooltip7.attr("transform", "translate(" + xPosition7 + "," + yPosition7 + ")");
+      tooltip7.select("text").text(d[1]-d[0]);
+    });
+
+  g7.append("g")
+      .attr("class", "axis")
+      .attr("transform", "translate(0," + height7 + ")")
+      .call(d3.axisBottom(x7));
+
+  g7.append("g")
+      .attr("class", "axis")
+      .call(d3.axisLeft(y7).ticks(null, "s"))
+    .append("text")
+      .attr("x", 2)
+      .attr("y", y(y7.ticks().pop()) + 0.5)
+      .attr("dy", "0.32em")
+      .attr("fill", "#000")
+      .attr("font-weight", "bold")
+      .attr("text-anchor", "start");
+
+  var legend7 = g7.append("g")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .attr("text-anchor", "end")
+    .selectAll("g")
+    .data(keys7.slice().reverse())
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  legend7.append("rect")
+      .attr("x", width7 - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", z7);
+
+  legend7.append("text")
+      .attr("x", width7 - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .text(function(d) { return d; });
+});
+
+  // Prep the tooltip bits, initial display is hidden
+  var tooltip7 = svg7.append("g")
+    .attr("class", "tooltip")
+    .style("display", "none");
+      
+  tooltip7.append("rect")
+    .attr("width", 60)
+    .attr("height", 20)
+    .attr("fill", "white")
+    .style("opacity", 0.5);
+
+  tooltip7.append("text")
+    .attr("x", 30)
+    .attr("dy", "1.2em")
+    .style("text-anchor", "middle")
+    .attr("font-size", "12px")
+    .attr("font-weight", "bold");
+</script>
+
 
 <script>
 // create the svg
