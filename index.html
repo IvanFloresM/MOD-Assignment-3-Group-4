@@ -32,6 +32,11 @@
   <!-- Color Scale https://rawgit.com/sghall/7859113/raw/422da4401f7d4fc0352a7c49961d24f03716be7a/gistfile1.js-->
   <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 
+  <!-- Mapbox links -->
+
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/favicon.png">
 
@@ -57,6 +62,11 @@
       margin-right: auto;
       width: 100%;
     }
+
+    .axis .domain {
+      display: none;
+    }
+
   </style>
 
 </head>
@@ -65,71 +75,33 @@
     <div class="ten columns">
       <h3 class="text"><STRONG>The impact of COVID-19 on New York City Bike </h3></STRONG>
       <p>
+        Mobility on Demand Systems: Data-Driven Analysis, Simulation, Visualization
+        <br>
         ARCH 6306/6050, DSBA 6010, ITIS 8010/6010: Wednesdays 6pm-8:30pm, Taught Online
         <br>
-        Ivan Flores Martinez | Bianca Moore | Jake D'Antoni | Samrhiti Kamat
+        Team: Ivan Flores Martinez, Bianca Moore, Jake D'Antoni, Samrhiti Kamat
         <br>
+        Advisor: Dr. Dimitris Papanikolaou | dpapanik@uncc.edu | Urban Synergetics Lab | https://urbansynergeticslab.net
       </p>
     </div>
     <div class="two columns">
-      <a href="https://urbansynergeticslab.net/"><img class="scale-with-grid" src="images/covid_bike.png"></strong></a>
+      <a href="https://urbansynergeticslab.net/"><img class="scale-with-grid" src="images/LabLogo_dark_cropped.png"></strong></a>
     </div>
     <div class="twelve columns">
       <h5>Research Question</h5>
       <h4 class="text"><strong>How have the peak hours and numbers of trips effected demand of the city bikes in NYC in 2020?</h4>
+
+
+      <h5 style="text-align: center"><em>Bike lanes and stations</em></h5>
+      <div id='map' style='width: 950px; height: 500px; align=middle;'> </div>
+      <p class="center-text">
+      The map above introduces the data of the project; Bike sharing systems in NYC. It showcases the bike sharing stations and lanes of NYC that were considered in the project. In the map, the red represents stations in 2019 and the yellow represents stations that were created in 2020.</p>
+      <br>
+
+
       <h5>Background</h5>
       <p class="text">With the recent outbreak of the coronavirus pandemic in 2020, we aim to compare data on bike sharing services in New York City from the years 2019 and 2020 to see if there are any conclusions that can be drawn relating to the pandemic’s effect on the CitiBike NYC services. Although correlation does not prove causation, we believe that examining these two years and comparing the data will allow us to make assumptions based on the data found. </p>
 
-      <div>
-        <p class="center"><em>Mobility trends in 2020 and 2021</em></p>
-      <img class="middle-img" src="images/time series of mobility.png" height="600" width="1000" align="middle"/></div>
-      </br>
-      <p class="text">The time series graph compares mobility trends from January 2020 to March 2021. Considering the lockdown due to the Covid-19 a severe dip was observed in all the three modes of transport in March 2020. Post March 2020 an increase in mobility was observed with driving being at the highest. It can also be observed that the use of transit systems showed a consistent increase post the lockdown of March 2020.</p>
-
-    <div>
-    	<p class="center"><em>Top 10 start in 2019</em></p>
-    	<img class="middle-img" src="images/top10 stations 2019.png" height="600" width="1000" align="middle"/></div>
-    	<br>
-
-        <div>
-    	<p class="center"><em>Top 10 stations in 2020</em></em></p>
-    	<img class="middle-img" src="images/top10 stations 2020.png" height="600" width="1000" align="middle"/></div>
-    	<br>
-    	<p class="text">The graph depicts significant differences between the years 2019 and 2020 as the usage of bikes by females decreased in peak hour values. Broadway and East 22 St. station specifically used by female users  was seen to have a decrease in the no. of trips from 2019 to 2020. Men were observed to use the Bike Sharing system more frequently as compared to women in both the years.</p>
-    </br>
-
-     </div>
-      <div class="image123">
-        <div class="imgContainer">
-          <p class="center"><em>Top Stations 2019</em></p>
-          <iframe src="https://kepler.gl/demo/map?mapUrl=https://dl.dropboxusercontent.com/s/ntdt0h3ukqh8t9x/keplergl_ijbiwds.json" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="600px" width="470px" allowfullscreen></iframe>
-        </div>
-        <div class="imgContainer">
-          <p class="center"><em>Top Stations 2020</em></p>
-          <iframe src="https://kepler.gl/demo/map?mapUrl=https://dl.dropboxusercontent.com/s/1ac83awmx30iidf/keplergl_ld6mth9.json" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="600px" width="470px" allowfullscreen></iframe>
-        </div>
-      <br>
-      <br>
-	<div class="twelve columns">
-     	<p class="text"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p></div>
-     	<br>
-
-     </div>
-      <div class="image123">
-        <div class="imgContainer">
-          <p class="center"><em>Weekend/Weekday 2019</em></p>
-          <iframe src="https://kepler.gl/demo/map?mapUrl=https://dl.dropboxusercontent.com/s/126hkuaepzh2izp/keplergl_y60pdn39.json" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="600px" width="470px" allowfullscreen></iframe>
-        </div>
-        <div class="imgContainer">
-          <p class="center"><em>Weekend/Weekday 2020</em></p>
-          <iframe src="https://kepler.gl/demo/map?mapUrl=https://dl.dropboxusercontent.com/s/o5p4j3sakvwxioc/keplergl_wdakquo.json" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="600px" width="470px" allowfullscreen></iframe>
-        </div>
-      <br>
-      <br>    	
-
-      <div class="twelve columns">
-     	<p class="text"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p></div>
-     	<br>
 
     </div>
       <div class="image123">
@@ -143,30 +115,64 @@
         </div>
       </div>
       <br>
-      <br>
-      <div class="twelve columns">
-     	<p class="text"> The data that was collected and observed included variables relating to location, time, number of trips and user type. COVID-19 shutdowns began in March of 2020 in the state of New York. The number of COVID-19 cases in NYC today amount to over 676,000 with over 28,000 deaths. Due to the amount of cases in NYC, we found it important to determine the effects of the pandemic on the city's shared bike system. We collected data from New York Public Health repository and added it to our analysis to observe impact.With our question in specific we aimed at looking at location and the timeline of the trips. On looking at the graphs concerning peak hours, it is observed that not only did the peak hours fluctuate but also the number of trips varied. Conclusions can be drawn relating to the number of trips, where there was a sharp decrease in March & April of 2020 when national lockdown began. Comparatively, in 2019 there was a sharp increase in these months. In addition, peak hours during 2019 and 2020 both show early morning and evening hours as high points, alluding to the argument that bike sharing services were used primarily for commuting to and from work.</p></div>
     <br>
-    <div class="image123">
-      <div class="imgContainer">
-        <p class="center"><em>Average number of trips per hours of the day 2019</em></p>
-        <img src="images/Average number of trips per hours of the day 2019.png" height="475" width="475"/>
-      </div>
-      <div class="imgContainer">
-        <p class="center"><em>Average number of trips per hours of the day 2020</em></p>
-        <img class="middle-img" src="images/Average number of trips per hours of the day 2020.png" height="475" width="475"/>
+    <br>
+
+      <p class="text">The data that was collected and observed included variables relating to location, time, number of trips and user type. COVID-19 shutdowns began in March of 2020 in the state of New York. The number of COVID-19 cases in NYC today amount to over 676,000 with over 28,000 deaths. Due to the amount of cases in NYC, we found it important to determine the effects of the pandemic on the city's shared bike system. We collected data from New York Public Health repository and added it to our analysis to observe impact.With our question in specific we aimed at looking at location and the timeline of the trips. On looking at the graphs concerning peak hours, it is observed that not only did the peak hours fluctuate but also the number of trips varied. Conclusions can be drawn relating to the number of trips, where there was a sharp decrease in March & April of 2020 when national lockdown began.</p>
+    
+      <div>
+        <p class="center"><em>Mobility trends in 2020 and 2021</em></p>
+      <img class="middle-img" src="images/time series of mobility.png" height="600" width="1000" align="middle"/></div>
+      </br>
+
+      <p class="text">The time series graph compares mobility trends from January 2020 to March 2021. Considering the lockdown due to the Covid-19 a severe dip was observed in all the three modes of transport in March 2020. Post March 2020 an increase in mobility was observed with driving being at the highest. It can also be observed that the use of transit systems showed a consistent increase post the lockdown of March 2020.</p>
+
+      <p class="center" >"Trip duration in 2019 vs 202 Customer type in 2019 vs 2020"</p>
+
+
+      <div>
+      <div class="imgContainer" id="chart2"></div>
+      </br>
+
+
+      <div>
+      <div class="imgContainer" id="chart1"></div>
       </div>
       </br>
-    </div>
-    </br>
-    <div class="twelve columns">
-      <p class="text">The average number of trips per day shows that in 2019, there were two peaks - in the morning and afternoon. This alludes to the conclusion that shared bike systems were used for commuting to and from work. Comparatively, the data from 2020 shows the absence of a morning peak in trips, possibly due to change in working patterns and transition to working-from-home. However, there is still a peak in the afternoon, showing that people continued to use shared bike systems in the evening for pleasure purposes. As seen in the graphs, the demand and the patterns show the usage reducing by half in the first peak (about 8am) and reduced in a lesser intensity at the second peak (between 7pm - 8pm).</p>
-    </div>
+      </br>
+
+      <p class="text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+
+
+       <div>
+      <div class="imgContainer" id="chart4"></div>
+      </br>
+
+
+      <div>
+      <div class="imgContainer" id="chart5"></div>
+      </div>
+      </br>
+      </br>
+
+      <p class="text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+      <br>
+      </br>
+    
     <p class="center"><em>Number of trips in NYC in 2020 and 2019</em></p>
     <div id="my_dataviz" align="middle"></div>
     <div class="twelve columns">
     <p class="text"> As compared to 2019 the number of trips in NYC drastically decreased in the month of March 2020 due to the lockdown the city faced. However, the overall trend between the years was not affected significantly. As the city went in phase 1 and 2 of the virus outbreak the usage of the Bike Sharing system seemed to have increased again. The number of trips in the month of october 2019 and 2020 seemed to be similar which concludes that the city went back to routine and utility in the later months of the year 2020.</p>
     </div>
+    </br>
+
+
+        <div>
+      <p class="center"><em>March 2019 vs 2020</em></p>
+      <img class="middle-img" src="images/march month 2019 vs 2020.png" height="600" width="1000" align="middle"/></div>
+    <br>
+
+    <p class="text">The average number of trips per hour shows that in 2019, there were two peaks - in the morning at 6am and in the evening at 5pm. This alludes to the conclusion that shared bike systems were used for commuting to and from work. Comparatively, the data from 2020 shows the dip in the usage of morning and afternoon peak in trips, possibly due to change in working patterns and transition to working-from-home. As seen in the graphs, the patterns show the usage reduced but with a lesser intensity concluding that people continued to use shared bike systems for mobility not just for work but also for leisure purposes.</p>
     </br>
 
     <div class="twelve columns">
@@ -182,13 +188,65 @@
     <p>The chord diagram represents connections between the top 60 stations in 2019 and 2020. The interconnections between stations are the trips made between the stations. Compared to 2019, interconnectivity decreased between stations. One explanation of this behavior is that the number of commuters decreased in 2020 while the number of recreational bike users increased. In addition, bike users also made shorter trips in 2020.</p>
     </br>
 
-    <div>
-      <p class="center"><em>March 2019 vs 2020</em></p>
-      <img class="middle-img" src="images/march month 2019 vs 2020.png" height="600" width="1000" align="middle"/></div>
-    <br>
 
-    <p class="text">The average number of trips per hour shows that in 2019, there were two peaks - in the morning at 6am and in the evening at 5pm. This alludes to the conclusion that shared bike systems were used for commuting to and from work. Comparatively, the data from 2020 shows the dip in the usage of morning and afternoon peak in trips, possibly due to change in working patterns and transition to working-from-home. As seen in the graphs, the patterns show the usage reduced but with a lesser intensity concluding that people continued to use shared bike systems for mobility not just for work but also for leisure purposes.</p>
+     
+    <div>
+      <p class="center"><em>Top 10 start in 2019</em></p>
+      <img class="middle-img" src="images/top10 stations 2019.png" height="600" width="1000" align="middle"/></div>
+      <br>
+
+        <div>
+      <p class="center"><em>Top 10 stations in 2020</em></em></p>
+      <img class="middle-img" src="images/top10 stations 2020.png" height="600" width="1000" align="middle"/></div>
+      <br>
+      <p class="text">The graph depicts significant differences between the years 2019 and 2020 as the usage of bikes by females decreased in peak hour values. Broadway and East 22 St. station specifically used by female users  was seen to have a decrease in the no. of trips from 2019 to 2020. Men were observed to use the Bike Sharing system more frequently as compared to women in both the years.</p>
     </br>
+
+
+  </div>
+      <div class="image123">
+        <div class="imgContainer">
+          <p class="center"><em>Top Stations 2019</em></p>
+          <iframe src="https://kepler.gl/demo/map?mapUrl=https://dl.dropboxusercontent.com/s/ntdt0h3ukqh8t9x/keplergl_ijbiwds.json" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="600px" width="470px" allowfullscreen></iframe>
+        </div>
+        <div class="imgContainer">
+          <p class="center"><em>Top Stations 2020</em></p>
+          <iframe src="https://kepler.gl/demo/map?mapUrl=https://dl.dropboxusercontent.com/s/1ac83awmx30iidf/keplergl_ld6mth9.json" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="600px" width="470px" allowfullscreen></iframe>
+        </div>
+      <br>
+      <div><br></div>
+    
+      </br>
+  <div class="twelve columns">
+      <p class="text"> The maps above represent the top ten stations identified by how frequently they were used as end stations and the height specifies the exact number of trips made in the year 2019 and 2020. The density of end stations is shown by the array of circles with density ranging from more trips (yellow) to less trips (purple). On comparing the two maps above, it can be observed that from the year 2019 to 2020, not only did the highest number of trips drop by 33% but also the densities of stations most frequently used changed. While the top stations with most densities were observed to be more clustered in the center of Manhattan, Midtown in 2019, the top stations in 2020 were observed to be more scattered and towards the waterfront edges between New York and New Jersey, popular parks and recreational squares. The top station of 2019 was in the middle of Manhattan, in the core of commercial areas of Midtown and a contrast to that was the top station of 2020 i.e., the upper east side station. Using these observations, a conclusion can be made that people chose the Bike Sharing system for recreational activities in 2020 as compared to 2019, where they only commuted for work into the core of the city.</p></div>
+      <br>
+
+
+
+
+  <div class="twelve columns">
+      <h5 style="text-align: center"><em>Land use</em></h5>
+      <div id='map2' style='width: 950px; height: 500px; align=middle;'> </div>
+      <p class="text"> The map above compares the Bike Sharing stations in the year 2019 and 2020, with a layer of land use pattern of NYC showing the manufacturing & commercial districts in comparison with residential areas. While the red and yellow circles represent the top ten stations used in the year 2019 and 2020 respectively, the black circles represent the stations which remained to be popular throughout the two years. It can be observed that new popular stations arose in areas which were less commercial. With this observation it can be said that people still used the Bike Sharing systems even with the COVID-19 outbreak and lockdown, but this time more for leisure than for work. Another distinction that could be made from the map was that in 2020, the top 10 stations were farther away from the subway lines. This change could have been caused as people avoided crowded places such as the subways due to COVID-19.</p></div>
+      <br>
+
+     </div>
+      <div class="image123">
+        <div class="imgContainer">
+          <p class="center"><em>Weekend/Weekday 2019</em></p>
+          <iframe src="https://kepler.gl/demo/map?mapUrl=https://dl.dropboxusercontent.com/s/126hkuaepzh2izp/keplergl_y60pdn39.json" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="600px" width="470px" allowfullscreen></iframe>
+        </div>
+        <div class="imgContainer">
+          <p class="center"><em>Weekend/Weekday 2020</em></p>
+          <iframe src="https://kepler.gl/demo/map?mapUrl=https://dl.dropboxusercontent.com/s/o5p4j3sakvwxioc/keplergl_wdakquo.json" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="600px" width="470px" allowfullscreen></iframe>
+        </div>
+      <br>
+      <br>      
+
+      <div class="twelve columns">
+      <p class="text"> The hexagons in the map above represent stations in a 0.3-mile radius each and the colors red and yellow represent trips taken more on weekends and weekdays respectively in the year 2019 and 2020.On comparison of the two maps, a clear rise in the number of trips taken on the weekend can be observed in 2020 than 2019. While in 2019, it can be noted that people used the Bike sharing systems on the weekends near recreational areas like the Central park, in 2020 people used bikes not just around the popular parks and squares but also around the commercial areas of the city too.</p></div>
+      <br>
+
 
       <h3>References</h3>
       <ol>
@@ -201,24 +259,49 @@
     </div>
   </div>
 
-  <div class="container one-bottom" >
+  <div class="twelve columns">
     <h3>Team & Contributions</h3>
     <h5>Ivan Flores Martinez</h5>
-    <p class="text">Ivan Flores took the lead with regards to setting up the github website, cleaning data, and creating chord graphs for the webpage.</p>
+    <p class="text">Ivan Flores took the lead with regards to setting up the github website, cleaning data, and creating chord graphs, scatterplots, and stacked bar graphs in D3 for the webpage. He also aided in putting together the github website.</p>
     <h5>Bianca Moore</h5>
-    <p class="text">Bianca Moore produced multiple graphs for the webpage and worked in RStudio to clean data. She also aided in putting together the github website.</p>
+    <p class="text">Bianca Moore contributed graphs for analyses, exports for assisting with map discovery. She aided putting together the github website.</p>
     <h5>Jake D'Antoni</h5>
-    <p class="text">Jake D'Antoni produced the bike sharing map via Kepler and cleaning the data for the assignment. He also aided in putting together the github website.</p>
+    <p class="text">Jake D'Antoni produced the bike sharing maps via Kepler and Mapbox and cleaned the data for the assignment. He also aided in putting together the github website.</p>
     <h5>Samrhiti Kamat</h5>
-    <p class="text">Samrhiti Kamat helped write the context the graphs and maps in the website. She aided putting together the github website. She also produced the PowerPoint presentation for assignment 2.</p>
+    <p class="text">Samrhiti Kamat produced the content to the graphs and maps in the website. She aided putting together the github website.</p>
   </div>
 </body>
 
-<script src="https://d3js.org/d3.v4.js"></script>
+/// Mapbox code
+/// Map 1
+ <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiamNkYW50b25pIiwiYSI6ImNrbDc5aGFxcjFrM2wydm5yZWthajFpc3UifQ.Y3ZOqGUxmeVLmvfiUSLVDw';
+    var map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/jcdantoni/ckl42vtzl2zrp17jy6oxr56k8', // style URL
+    center: [-74, 40.72165072], // starting position [lng, lat]
+    zoom: 11 // starting zoom
+  });
+  </script>
+
+/// Map 1
+ <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiamNkYW50b25pIiwiYSI6ImNrbDZ6OGI2azFuM24ycHFtd3Nsazd3cnQifQ.RxXx9iFbnn3w4Z9_78DX_Q';
+    var map2 = new mapboxgl.Map({
+    container: 'map2', // container ID
+    style: 'mapbox://styles/jcdantoni/cknaqw17h17gh17o6qpwy8vfx', // style URL
+    center: [-74, 40.72165072], // starting position [lng, lat]
+    zoom: 11 // starting zoom
+  });
+  </script>
+
+
+
+
 <script>
   // set the dimensions and margins of the graph
   var margin = {top: 10, right: 100, bottom: 30, left: 30},
-          width = 700 - margin.left - margin.right,
+          width = 1100 - margin.left - margin.right,
           height = 500 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
@@ -536,4 +619,481 @@
 
         }
     </script>
+
+<script>
+var svg1 = d3.select("#chart1").append("svg").attr("width", 450).attr("height", 500),
+    margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = +svg1.attr("width") - margin.left - margin.right,
+    height = +svg1.attr("height") - margin.top - margin.bottom,
+    g1 = svg1.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// set x scale
+var x = d3.scaleBand()
+    .rangeRound([0, width])
+    .paddingInner(0.05)
+    .align(0.1);
+
+// set y scale
+var y = d3.scaleLinear()
+    .rangeRound([height, 0]);
+
+// set the colors
+var z = d3.scaleOrdinal()
+    .range(["#fd1212", "#c3ce1a"]);
+
+// load the csv and create the chart
+d3.csv("data/age-groups.csv", function(d, i, columns) {
+  for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+  d.total = t;
+  return d;
+}, function(error, data) {
+  if (error) throw error;
+
+  var keys = data.columns.slice(1);
+
+  
+  x.domain(data.map(function(d) { return d.State; }));
+  y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
+  z.domain(keys);
+
+  g1.append("g")
+    .selectAll("g")
+    .data(d3.stack().keys(keys)(data))
+    .enter().append("g")
+      .attr("fill", function(d) { return z(d.key); })
+    .selectAll("rect")
+    .data(function(d) { return d; })
+    .enter().append("rect")
+      .attr("x", function(d) { return x(d.data.State); })
+      .attr("y", function(d) { return y(d[1]); })
+      .attr("height", function(d) { return y(d[0]) - y(d[1]); })
+      .attr("width", x.bandwidth())
+    .on("mouseover", function() { tooltip1.style("display", null); })
+    .on("mouseout", function() { tooltip1.style("display", "none"); })
+    .on("mousemove", function(d) {
+      console.log(d);
+      var xPosition1 = d3.mouse(this)[0] - 5;
+      var yPosition1 = d3.mouse(this)[1] - 5;
+      tooltip1.attr("transform", "translate(" + xPosition1 + "," + yPosition + ")");
+      tooltip1.select("text").text(d[1]-d[0]);
+    });
+
+  g1.append("g")
+      .attr("class", "axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x1));
+
+  g1.append("g")
+      .attr("class", "axis")
+      .call(d3.axisLeft(y1).ticks(null, "s"))
+    .append("text")
+      .attr("x", 2)
+      .attr("y", y(y1.ticks().pop()) + 0.5)
+      .attr("dy", "0.32em")
+      .attr("fill", "#000")
+      .attr("font-weight", "bold")
+      .attr("text-anchor", "start");
+
+  var legend2 = g1.append("g")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 12)
+      .attr("text-anchor", "end")
+    .selectAll("g")
+    .data(keys.slice().reverse())
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(10," + i * 20 + ")"; });
+
+  legend2.append("rect")
+      .attr("x", width - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", z);
+
+  legend2.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .text(function(d) { return d; });
+});
+
+  // Prep the tooltip bits, initial display is hidden
+  var tooltip1 = svg1.append("g")
+    .attr("class", "tooltip")
+    .style("display", "none");
+      
+  tooltip1.append("rect")
+    .attr("width", 60)
+    .attr("height", 20)
+    .attr("fill", "white")
+    .style("opacity", 0.5);
+
+  tooltip1.append("text")
+    .attr("x", 30)
+    .attr("dy", "1.2em")
+    .style("text-anchor", "middle")
+    .attr("font-size", "12px")
+    .attr("font-weight", "bold");
+
+</script>
+
+<style>
+        .axis--x path {
+            display: none;
+        }
+
+        .line {
+            fill: none;
+            stroke: steelblue;
+            stroke-width: 1.5px;
+        }
+    </style>
+
+<script>
+// create the svg
+var svg4 = d3.select("#chart4").append("svg").attr("width", 450).attr("height", 500),
+    margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width4 = +svg4.attr("width") - margin.left - margin.right,
+    height4 = +svg4.attr("height") - margin.top - margin.bottom,
+    g4 = svg4.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// set x scale
+var x4 = d3.scaleBand()
+    .rangeRound([0, width4])
+    .paddingInner(0.05)
+    .align(0.1);
+
+// set y scale
+var y4 = d3.scaleLinear()
+    .rangeRound([height4, 0]);
+
+// set the colors
+var z4 = d3.scaleOrdinal()
+    .range(["#fd1212", "#edfb0f"]);
+
+// load the csv and create the chart
+d3.csv("data/age-groups2.csv", function(d, i, columns) {
+  for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+  d.total = t;
+  return d;
+}, function(error, data) {
+  if (error) throw error;
+
+  var keys4 = data.columns.slice(1);
+
+  x4.domain(data.map(function(d) { return d.State; }));
+  y4.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
+  z4.domain(keys4);
+
+  g4.append("g")
+    .selectAll("g")
+    .data(d3.stack().keys(keys4)(data))
+    .enter().append("g")
+      .attr("fill", function(d) { return z(d.key); })
+    .selectAll("rect")
+    .data(function(d) { return d; })
+    .enter().append("rect")
+      .attr("x", function(d) { return x(d.data.State); })
+      .attr("y", function(d) { return y(d[1]); })
+      .attr("height", function(d) { return y(d[0]) - y(d[1]); })
+      .attr("width", x4.bandwidth())
+    .on("mouseover", function() { tooltip4.style("display", null); })
+    .on("mouseout", function() { tooltip4.style("display", "none"); })
+    .on("mousemove", function(d) {
+      console.log(d);
+      var xPosition4 = d3.mouse(this)[0] - 5;
+      var yPosition4 = d3.mouse(this)[1] - 5;
+      tooltip4.attr("transform", "translate(" + xPosition4 + "," + yPosition4 + ")");
+      tooltip4.select("text").text(d[1]-d[0]);
+    });
+
+  g4.append("g")
+      .attr("class", "axis")
+      .attr("transform", "translate(0," + height4 + ")")
+      .call(d3.axisBottom(x4));
+
+  g4.append("g")
+      .attr("class", "axis")
+      .call(d3.axisLeft(y4).ticks(null, "s"))
+    .append("text")
+      .attr("x", 2)
+      .attr("y", y(y4.ticks().pop()) + 0.5)
+      .attr("dy", "0.32em")
+      .attr("fill", "#000")
+      .attr("font-weight", "bold")
+      .attr("text-anchor", "start");
+
+  var legend4 = g4.append("g")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .attr("text-anchor", "end")
+    .selectAll("g")
+    .data(keys4.slice().reverse())
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  legend4.append("rect")
+      .attr("x", width4 - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", z4);
+
+  legend4.append("text")
+      .attr("x", width4 - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .text(function(d) { return d; });
+});
+
+  // Prep the tooltip bits, initial display is hidden
+  var tooltip4 = svg4.append("g")
+    .attr("class", "tooltip")
+    .style("display", "none");
+      
+  tooltip4.append("rect")
+    .attr("width", 60)
+    .attr("height", 20)
+    .attr("fill", "white")
+    .style("opacity", 0.5);
+
+  tooltip4.append("text")
+    .attr("x", 30)
+    .attr("dy", "1.2em")
+    .style("text-anchor", "middle")
+    .attr("font-size", "12px")
+    .attr("font-weight", "bold");
+</script>
+
+
+<script>
+// create the svg
+var svg5 = d3.select("#chart5").append("svg").attr("width", 450).attr("height", 500),
+    margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width5 = +svg5.attr("width") - margin.left - margin.right,
+    height5 = +svg5.attr("height") - margin.top - margin.bottom,
+    g5 = svg5.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// set x scale
+var x5 = d3.scaleBand()
+    .rangeRound([0, width5])
+    .paddingInner(0.05)
+    .align(0.1);
+
+// set y scale
+var y5 = d3.scaleLinear()
+    .rangeRound([height5, 0]);
+
+// set the colors
+var z5 = d3.scaleOrdinal()
+    .range(["#fd1212", "#edfb0f"]);
+
+// load the csv and create the chart
+d3.csv("data/age-groups3.csv", function(d, i, columns) {
+  for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+  d.total = t;
+  return d;
+}, function(error, data) {
+  if (error) throw error;
+
+  var keys5 = data.columns.slice(1);
+
+  x5.domain(data.map(function(d) { return d.State; }));
+  y5.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
+  z5.domain(keys5);
+
+  g5.append("g")
+    .selectAll("g")
+    .data(d3.stack().keys(keys5)(data))
+    .enter().append("g")
+      .attr("fill", function(d) { return z(d.key); })
+    .selectAll("rect")
+    .data(function(d) { return d; })
+    .enter().append("rect")
+      .attr("x", function(d) { return x(d.data.State); })
+      .attr("y", function(d) { return y(d[1]); })
+      .attr("height", function(d) { return y(d[0]) - y(d[1]); })
+      .attr("width", x5.bandwidth())
+    .on("mouseover", function() { tooltip5.style("display", null); })
+    .on("mouseout", function() { tooltip5.style("display", "none"); })
+    .on("mousemove", function(d) {
+      console.log(d);
+      var xPosition5 = d3.mouse(this)[0] - 5;
+      var yPosition5 = d3.mouse(this)[1] - 5;
+      tooltip5.attr("transform", "translate(" + xPosition5 + "," + yPosition5 + ")");
+      tooltip5.select("text").text(d[1]-d[0]);
+    });
+
+  g5.append("g")
+      .attr("class", "axis")
+      .attr("transform", "translate(0," + height5 + ")")
+      .call(d3.axisBottom(x5));
+
+  g5.append("g")
+      .attr("class", "axis")
+      .call(d3.axisLeft(y5).ticks(null, "s"))
+    .append("text")
+      .attr("x", 2)
+      .attr("y", y(y4.ticks().pop()) + 0.5)
+      .attr("dy", "0.32em")
+      .attr("fill", "#000")
+      .attr("font-weight", "bold")
+      .attr("text-anchor", "start");
+
+  var legend5 = g5.append("g")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .attr("text-anchor", "end")
+    .selectAll("g")
+    .data(keys5.slice().reverse())
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  legend5.append("rect")
+      .attr("x", width5 - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", z4);
+
+  legend5.append("text")
+      .attr("x", width5 - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .text(function(d) { return d; });
+});
+
+  // Prep the tooltip bits, initial display is hidden
+  var tooltip4 = svg4.append("g")
+    .attr("class", "tooltip")
+    .style("display", "none");
+      
+  tooltip4.append("rect")
+    .attr("width", 60)
+    .attr("height", 20)
+    .attr("fill", "white")
+    .style("opacity", 0.5);
+
+  tooltip4.append("text")
+    .attr("x", 30)
+    .attr("dy", "1.2em")
+    .style("text-anchor", "middle")
+    .attr("font-size", "12px")
+    .attr("font-weight", "bold");
+</script>
+
+<script>
+// create the svg
+var svg3 = d3.select("#chart2").append("svg").attr("width", 450).attr("height", 500),
+    margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width3 = +svg3.attr("width") - margin.left - margin.right,
+    height3 = +svg3.attr("height") - margin.top - margin.bottom,
+    g2 = svg3.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// set x scale
+var x2 = d3.scaleBand()
+    .rangeRound([0, width])
+    .paddingInner(0.05)
+    .align(0.1);
+
+// set y scale
+var y2 = d3.scaleLinear()
+    .rangeRound([height, 0]);
+
+// set the colors
+var z2 = d3.scaleOrdinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+// load the csv and create the chart
+d3.csv("data/trip_duration.csv", function(d, i, columns) {
+  for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+  d.total = t;
+  return d;
+}, function(error, data) {
+  if (error) throw error;
+
+  var keys = data.columns.slice(1);
+
+  data.sort(function(a, b) { return b.total - a.total; });
+  x.domain(data.map(function(d) { return d.State; }));
+  y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
+  z.domain(keys);
+
+  g2.append("g")
+    .selectAll("g")
+    .data(d3.stack().keys(keys)(data))
+    .enter().append("g")
+      .attr("fill", function(d) { return z(d.key); })
+    .selectAll("rect")
+    .data(function(d) { return d; })
+    .enter().append("rect")
+      .attr("x", function(d) { return x(d.data.State); })
+      .attr("y", function(d) { return y(d[1]); })
+      .attr("height", function(d) { return y(d[0]) - y(d[1]); })
+      .attr("width", x.bandwidth())
+    .on("mouseover", function() { tooltip.style("display", null); })
+    .on("mouseout", function() { tooltip.style("display", "none"); })
+    .on("mousemove", function(d) {
+      console.log(d);
+      var xPosition = d3.mouse(this)[0] - 5;
+      var yPosition = d3.mouse(this)[1] - 5;
+      tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+      tooltip.select("text").text(d[1]-d[0]);
+    });
+
+  g2.append("g")
+      .attr("class", "axis")
+      .attr("transform", "translate(0," + height3 + ")")
+      .call(d3.axisBottom(x));
+
+  g2.append("g")
+      .attr("class", "axis")
+      .call(d3.axisLeft(y).ticks(null, "s"))
+    .append("text")
+      .attr("x", 2)
+      .attr("y", y(y.ticks().pop()) + 0.5)
+      .attr("dy", "0.32em")
+      .attr("fill", "#000")
+      .attr("font-weight", "bold")
+      .attr("text-anchor", "start");
+
+  var legend = g2.append("g")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .attr("text-anchor", "end")
+    .selectAll("g")
+    .data(keys.slice().reverse())
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  legend.append("rect")
+      .attr("x", width3 - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", z);
+
+  legend.append("text")
+      .attr("x", width3 - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .text(function(d) { return d; });
+});
+
+  // Prep the tooltip bits, initial display is hidden
+  var tooltip = svg3.append("g")
+    .attr("class", "tooltip")
+    .style("display", "none");
+      
+  tooltip.append("rect")
+    .attr("width", 60)
+    .attr("height", 20)
+    .attr("fill", "white")
+    .style("opacity", 0.5);
+
+  tooltip.append("text")
+    .attr("x", 30)
+    .attr("dy", "1.2em")
+    .style("text-anchor", "middle")
+    .attr("font-size", "12px")
+    .attr("font-weight", "bold");
+
+</script>
+
 </html>
